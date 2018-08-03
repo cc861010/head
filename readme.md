@@ -1,5 +1,12 @@
-sudo docker run -it --privileged cc861010/ubuntu:18.04-xrun /bin/bash
+## start desktop
+sudo docker run -it --privileged cc861010/ubuntu:18.04-xrun /bin/bash    
+startx
 
+
+
+## build image
+FROM ubuntu:18.04
+RUN ["
 
 cat > /etc/apt/sources.list <<END
 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
@@ -22,3 +29,6 @@ apt-get install i3 ubuntu-drivers-common mesa-utils mesa-utils-extra gnupg numlo
 /lib/systemd/systemd-udevd --debug &  udevadm trigger
 
 startx
+
+"]
+
