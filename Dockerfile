@@ -12,16 +12,9 @@ RUN apt-get -y install \
 	mesa-utils-extra \ 
 	xorg \
 	xserver-xorg \
-	wget \
-	unzip \
-	zsh \
 	xterm \
-	vim \
-	tmux \
-	libssl1.0.0 \
 	ttf-wqy-microhei \
 	dbus-x11 \
-	i3 \
 	sudo	
 
 RUN apt-get autoremove

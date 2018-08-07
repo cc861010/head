@@ -1,4 +1,6 @@
 #!/bin/bash
+apt-get update 
+apt-get install i3 sudo zsh
 useradd -m -p cc cc 
 adduser cc sudo
 chsh -s $(which zsh)
