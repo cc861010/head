@@ -7,7 +7,6 @@ RUN apt-get update &&  dpkg -l | grep ^ii | cut -d' ' -f3 | xargs apt-get instal
 RUN apt-get update
 
 RUN apt-get -y install \
-	apt-utils \
 	ubuntu-drivers-common \
 	mesa-utils \
 	mesa-utils-extra \ 
@@ -22,7 +21,6 @@ RUN apt-get -y install \
 	libssl1.0.0 \
 	ttf-wqy-microhei \
 	dbus-x11 \
-	tzdata \
 	i3 \
 	sudo	
 
