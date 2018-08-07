@@ -4,10 +4,10 @@ RUN rm /etc/dpkg/dpkg.cfg.d/excludes
 # Reinstall all currently installed packages in order to get the man pages back
 RUN apt-get update &&  dpkg -l | grep ^ii | cut -d' ' -f3 | xargs apt-get install -y --reinstall &&  rm -r /var/lib/apt/lists/*
 
+RUN apt-get update
 
-RUN /lib/systemd/systemd-udevd --debug & udevadm trigger
-
-RUN apt-get install \
+RUN apt-get -y install \
+	apt-utils \
 	ubuntu-drivers-common \
 	mesa-utils \
 	mesa-utils-extra \ 
@@ -25,8 +25,12 @@ RUN apt-get install \
 	tzdata \
 	sudo	
 
+RUN apt-get autoremove
+
+RUN /lib/systemd/systemd-udevd --debug & /sbin/udevadm trigger
+
 WORKDIR /app
 ADD . /app
 
-CMD ["./start"]
+# CMD ["./start"]
 
