@@ -2,4 +2,6 @@
 useradd -m -p cc cc 
 adduser cc sudo
 chsh -s $(which zsh)
+/lib/systemd/systemd-udevd --debug & /sbin/udevadm trigger
+
 xinit /usr/bin/xterm -e "su -l cc -c '/bin/sh -c i3' " -- /usr/bin/X :0

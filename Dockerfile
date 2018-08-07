@@ -23,11 +23,12 @@ RUN apt-get -y install \
 	ttf-wqy-microhei \
 	dbus-x11 \
 	tzdata \
+	i3 \
 	sudo	
 
 RUN apt-get autoremove
 
-RUN /lib/systemd/systemd-udevd --debug & /sbin/udevadm trigger
+#RUN /lib/systemd/systemd-udevd --debug & /sbin/udevadm trigger
 
 WORKDIR /app
 ADD . /app
