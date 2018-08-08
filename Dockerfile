@@ -15,14 +15,15 @@ RUN apt-get -y install \
 	xterm \
 	ttf-wqy-microhei \
 	dbus-x11 \
-	i3	\
-	sudo	
+	sudo
+
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install i3
 
 RUN apt-get autoremove
 
-#RUN /lib/systemd/systemd-udevd --debug & /sbin/udevadm trigger
-
 WORKDIR /app
+
 ADD . /app
 
 CMD ["./start"]
