@@ -2,7 +2,7 @@
 docker run -it --privileged cc861010/ubuntu:18.04-xrun-v1 /bin/bash    
 
 ## build image
-docker build . -t cc861010/ubuntu:18.04-xrun-v1
+./build 
 
 
 ## 为什么有这个项目:
@@ -25,8 +25,8 @@ docker build . -t cc861010/ubuntu:18.04-xrun-v1
 
 
 ## 使用前提:
-1.软件:支持docker的最小系统,比如alpine，resionOS等
-2.硬件:x86主机,键盘鼠标,显示器
+1. 软件:支持docker的最小系统,比如alpine，resionOS等
+2. 硬件:x86主机,键盘鼠标,显示器
 
 
 ## 使用场景:
