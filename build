@@ -1,0 +1,3 @@
+#!/bin/bash
+docker build . -t ubuntu:18.04-xrun-v1
+docker run --rm -i -t -P -v /home/bak/home:/home -v /home/bak/local:/usr/local --privileged ubuntu:18.04-xrun-v1

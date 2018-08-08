@@ -1,9 +1,13 @@
 #!/bin/bash
 
-useradd -m cc
+read -p "input username :" name
 
-adduser cc sudo
+useradd -m $name
+
+adduser $name sudo
+
+passwd $name
 
 /lib/systemd/systemd-udevd --debug & /sbin/udevadm trigger
 
-xinit /usr/bin/xterm -fa 'Monospace' -fs 14 -bg black -fg white -e "su -l cc -c '/bin/sh -c i3' " -- /usr/bin/X :0
+xinit /usr/bin/xterm -fa 'Monospace' -fs 14 -bg black -fg white -e "su -l $name -c '/bin/sh -c i3' " -- /usr/bin/X :0
