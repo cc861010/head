@@ -1,5 +1,5 @@
 ## start desktop
-docker run -it --privileged cc861010/ubuntu:18.04-xrun-v1 /bin/bash    
+./xrun  
 
 ## build image
 ./build 
@@ -19,10 +19,16 @@ docker run -it --privileged cc861010/ubuntu:18.04-xrun-v1 /bin/bash
 
 + 系统构建标准化
 
+    todo 
+    
 + 状态分支版本化
 
+    todo 
+    
 + 分享获取便捷化
 
+    todo 
+    
 
 ## 使用前提:
 1. 软件:支持docker的最小系统,比如alpine，resionOS等
