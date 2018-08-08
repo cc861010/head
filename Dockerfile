@@ -15,6 +15,7 @@ RUN apt-get -y install \
 	xterm \
 	ttf-wqy-microhei \
 	dbus-x11 \
+	i3	\
 	sudo	
 
 RUN apt-get autoremove
@@ -24,5 +25,5 @@ RUN apt-get autoremove
 WORKDIR /app
 ADD . /app
 
-# CMD ["./start"]
+CMD ["./start"]
 

@@ -1,9 +1,9 @@
 #!/bin/bash
-apt-get update 
-apt-get install i3 sudo zsh
+#apt-get update 
+#apt-get install -y i3 sudo zsh
 useradd -m -p cc cc 
 adduser cc sudo
-chsh -s $(which zsh)
+#chsh -s $(which zsh)
 /lib/systemd/systemd-udevd --debug & /sbin/udevadm trigger
 
-xinit /usr/bin/xterm -e "su -l cc -c '/bin/sh -c i3' " -- /usr/bin/X :0
+xinit /usr/bin/xterm -fa 'Monospace' -fs 14 -bg black -fg white -e "su -l cc -c '/bin/sh -c i3' " -- /usr/bin/X :0
