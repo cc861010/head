@@ -1,12 +1,18 @@
 #!/bin/bash
 
 read -p "input username :" name
+egrep "^$name" /etc/passwd >/dev/null
+if [ $? -eq 0 ]; then
+    echo "$name exists!"
+else
+    useradd -m $name
+    adduser $name sudo
+    passwd $name
+fi
 
-useradd -m $name
-
-adduser $name sudo
-
-passwd $name
+# useradd -m $name
+# adduser $name sudo
+# passwd $name
 
 /lib/systemd/systemd-udevd --debug & /sbin/udevadm trigger
 
