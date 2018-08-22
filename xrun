@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run --rm -i -t -P -v /home:/home --privileged cc861010/ubuntu:18.04-xrun-v1
+docker run --rm -i -t -P -v /home:/home --shm-size=1g  --privileged cc861010/ubuntu:18.04-xrun-v1
