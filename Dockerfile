@@ -14,7 +14,6 @@ RUN apt-get -y install \
 	xserver-xorg \
 	xterm \
 	ttf-wqy-microhei \
-	dbus-x11 \
 	sudo
 
 
@@ -24,7 +23,7 @@ RUN apt-get autoremove
 
 WORKDIR /app
 
-ADD . /app
+ADD ./start /app
 
 CMD ["./start"]
 
