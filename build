@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t cc861010/ubuntu:18.04-xrun-v1 .
+docker build -t head .
