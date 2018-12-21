@@ -14,12 +14,11 @@ RUN apt-get -y install \
 	xserver-xorg \
 	xterm \
 	ttf-wqy-microhei \
-	sudo
-
+	sudo 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install i3
 
-RUN apt-get autoremove
+RUN apt-get purge --auto-remove && rm -rf /tmp/* /var/lib/apt/lists/* && apt-get -s clean
 
 WORKDIR /app
 
