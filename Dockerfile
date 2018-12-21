@@ -24,7 +24,7 @@ WORKDIR /app
 
 ADD ./start /app
 ADD ./config /app
-ADD ./.Xresource /app
+ADD ./.Xresources /app
 
 CMD ["./start"]
 
