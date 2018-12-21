@@ -5,10 +5,18 @@ egrep "^$name" /etc/passwd >/dev/null
 if [ $? -eq 0 ]; then
     echo "$name exists!"
 else
+    #create user
     useradd -m $name
     adduser $name sudo
     passwd $name
-    /bin/su -l $name -c 'mkdir -p ~/.config/i3 && cp ./config ~/.config/i3'
+    #config user config
+    xhost +;
+    xrdb ./.Xresources
+    mkdir -p /home/$name/.config/i3
+    cp ./config /home/$name/.config/i3
+    cp ./.Xresources /home/$name/
+    chown -R $name /home/$name/.config
+    /bin/su -l $name -c 'xrdb ~/.Xresources'
 fi
 
 
