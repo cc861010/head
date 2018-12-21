@@ -24,6 +24,8 @@ RUN apt-get autoremove
 WORKDIR /app
 
 ADD ./start /app
+ADD ./config /app
+ADD ./.Xresource /app
 
 CMD ["./start"]
 

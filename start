@@ -8,6 +8,7 @@ else
     useradd -m $name
     adduser $name sudo
     passwd $name
+    /bin/su -l $name -c 'mkdir -p ~/.config/i3 && cp ./config ~/.config/i3'
 fi
 
 
