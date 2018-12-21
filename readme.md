@@ -31,7 +31,7 @@
     
 
 ## 使用前提:
-1. 软件:支持docker的最小系统,比如alpine，resionOS等
+1. 软件:支持docker的最小系统,比如CoreOS，ubuntu server,RancherOS等
 2. 硬件:x86主机,键盘鼠标,显示器
 
 
