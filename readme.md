@@ -32,10 +32,15 @@
 
 ## 使用前提:
 1. 软件:支持docker的最小系统,比如CoreOS，ubuntu server,RancherOS等
+
+```
+    建议：https://help.ubuntu.com/community/Installation/MinimalCD
+```
+
 2. 硬件:x86主机,键盘鼠标,显示器
 
 
 ## 使用场景:
 1. 需要统一的桌面工作环境
-2. 桌面环境为linux,常用工具为i3窗口管理,tmux多窗口管理
+2. 桌面环境为linux,常用工具为i3窗口管理
 3. 可以打包,方便部署,脚本化构建,可移植性
