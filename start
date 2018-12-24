@@ -3,24 +3,20 @@
 read -p "input username :" name
 egrep "^$name" /etc/passwd >/dev/null
 if [ $? -eq 0 ]; then
-    echo "$name exists!"
+    echo "login with $name: "
 else
     #create user
     useradd -m $name
     adduser $name sudo
     passwd $name
     #config user config
-    xhost +;
-    xrdb ./.Xresources
     mkdir -p /home/$name/.config/i3
     cp ./config /home/$name/.config/i3
-    cp ./.Xresources /home/$name/
     chown -R $name /home/$name/.config
-    /bin/su -l $name -c 'xrdb ~/.Xresources'
 fi
 
 
 /lib/systemd/systemd-udevd --debug & /sbin/udevadm trigger
 
 
-xinit /bin/su -l $name -c '/bin/sh -c i3'  -- /usr/bin/X :0
+xinit /bin/su -l $name -c 'xrdb /app/.Xresources && /bin/sh -c i3'  -- /usr/bin/X :0
