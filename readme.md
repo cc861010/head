@@ -1,6 +1,10 @@
 ## start 
 ```
     docker run -it --privileged cc861010/head
+
+    or
+
+    docker run --privileged -e USER_NAME=cc -e USER_PASSWORD=ff cc861010/head
 ```
 * first to install a [server ubuntu](https://help.ubuntu.com/community/Installation/MinimalCD) with docker server,other linux ,like coreos,is ok but it was not tested
 

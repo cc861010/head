@@ -1,13 +1,11 @@
 #!/bin/bash
 
-
 set -e
 echo -e "\n------------------ startup of i3wm  window manager ------------------"
 
 create_user_by_input(){
     read -p "input username :" name
-    egrep "^$name" /etc/passwd >/dev/null
-    if [ $? -eq 0 ]; then
+    if [ $(getent passwd $name) ] ; then
         echo "login with $name: "
     else
         #create user
