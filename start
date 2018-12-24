@@ -54,8 +54,10 @@ create_user_by_env(){
 
 
 if [ $USER_NAME ];then
+    echo "create user by ENV(USER_NAME and USER_PASSWORD), and the default username and password is bear"
     create_user_by_env 
 else
+    echo "create user by input username and password"
     create_user_by_input
 fi
 
