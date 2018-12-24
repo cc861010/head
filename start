@@ -42,19 +42,23 @@ create_user_by_env(){
             echo "USER_PASSWORD = $password"
     fi
 
-    echo "create user.."
+    # "create user.."
     if [ $(getent passwd $name) ] ; then
         echo "$name exists!"
     else
         useradd -m $name
         adduser $name sudo
         echo -e "${password}\n${password}" | passwd $name
+        #config user config
+        mkdir -p /home/$name/.config/i3
+        cp ./config /home/$name/.config/i3
+        chown -R $name /home/$name/.config
     fi
 }
 
 
 if [ $USER_NAME ];then
-    echo "create user by ENV(USER_NAME and USER_PASSWORD), and the default username and password is bear"
+    echo "create user by ENV(USER_NAME and USER_PASSWORD), the default username and password is the same text bear"
     create_user_by_env 
 else
     echo "create user by input username and password"
