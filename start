@@ -1,18 +1,62 @@
 #!/bin/bash
 
-read -p "input username :" name
-egrep "^$name" /etc/passwd >/dev/null
-if [ $? -eq 0 ]; then
-    echo "login with $name: "
+
+set -e
+echo -e "\n------------------ startup of i3wm  window manager ------------------"
+
+create_user_by_input(){
+    read -p "input username :" name
+    egrep "^$name" /etc/passwd >/dev/null
+    if [ $? -eq 0 ]; then
+        echo "login with $name: "
+    else
+        #create user
+        useradd -m $name
+        adduser $name sudo
+        passwd $name
+        #config user config
+        mkdir -p /home/$name/.config/i3
+        cp ./config /home/$name/.config/i3
+        chown -R $name /home/$name/.config
+    fi
+}
+
+create_user_by_env(){
+    # default username and userpassword
+    name=bear
+    password=bear
+
+    # set user name
+    if [ $USER_NAME ];then
+            name=$USER_NAME
+            echo "USER_NAME = $USER_NAME"
+    else
+            echo "USER_NAME = $name"
+    fi
+
+    # set user password
+    if [ $USER_PASSWORD ];then
+            password=$USER_PASSWORD
+            echo "USER_PASSWORD = $USER_PASSWORD"
+    else
+            echo "USER_PASSWORD = $password"
+    fi
+
+    echo "create user.."
+    if [ $(getent passwd $name) ] ; then
+        echo "$name exists!"
+    else
+        useradd -m $name
+        adduser $name sudo
+        echo -e "${password}\n${password}" | passwd $name
+    fi
+}
+
+
+if [ $USER_NAME ];then
+    create_user_by_env 
 else
-    #create user
-    useradd -m $name
-    adduser $name sudo
-    passwd $name
-    #config user config
-    mkdir -p /home/$name/.config/i3
-    cp ./config /home/$name/.config/i3
-    chown -R $name /home/$name/.config
+    create_user_by_input
 fi
 
 
