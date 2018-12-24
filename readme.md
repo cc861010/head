@@ -2,7 +2,7 @@
 ```
     docker run -it --privileged cc861010/head
 ```
-* first to install a [server ubuntu](https://help.ubuntu.com/community/Installation/MinimalCD) with docker server，other linux ,like coreos,is ok but it was not test
+* first to install a [server ubuntu](https://help.ubuntu.com/community/Installation/MinimalCD) with docker server,other linux ,like coreos,is ok but it was not test
 
 ## what 
 * run a i3wm desktop envicerment in a host which has display and input devices 
