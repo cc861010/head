@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t head .
+docker build -t cc861010/head .
