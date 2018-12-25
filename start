@@ -63,8 +63,11 @@ else
     create_user_by_input
 fi
 
+chmod a+rwx /dev/snd/*
 
 /lib/systemd/systemd-udevd --debug & /sbin/udevadm trigger
 
-
 xinit /bin/su -l $name -c 'xrdb /app/.Xresources && /bin/sh -c i3'  -- /usr/bin/X :0
+
+
+

@@ -15,4 +15,7 @@
 1. run different system envicerment at the same time on one machine eg,game,development,and so on
 2. to isolate different environments
 3. install a system with desktop quickly,just one command
+## support sound playing
+1. apt install -y cmus
+2. open cmus and play
 

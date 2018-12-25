@@ -14,7 +14,8 @@ RUN apt-get -y install \
 	xserver-xorg \
 	xterm \
 	ttf-wqy-microhei \
-	sudo 
+	sudo \
+	pulseaudio
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install i3
 
