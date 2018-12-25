@@ -18,7 +18,7 @@
 3. install a system with desktop quickly,just one command
 
 ## support sound playing
-1. apt install -y cmus && cmus
+* apt install -y cmus && cmus
 
 ## support opengl game playing
 ```
