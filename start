@@ -16,6 +16,7 @@ create_user_by_input(){
         mkdir -p /home/$name/.config/i3
         cp ./config /home/$name/.config/i3
         chown -R $name /home/$name/.config
+        usermod -s /bin/bash $name
     fi
 }
 
@@ -47,6 +48,7 @@ create_user_by_env(){
         useradd -m $name
         adduser $name sudo
         echo -e "${password}\n${password}" | passwd $name
+        usermod -s /bin/bash $name
         #config user config
         mkdir -p /home/$name/.config/i3
         cp ./config /home/$name/.config/i3
